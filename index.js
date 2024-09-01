@@ -1,6 +1,6 @@
 const quote = document.getElementById("quote");
 const author = document.getElementById("author");
-const api_url = "https://type.fit/api/quotes";
+const api_url = "https://stoic-quotes.com/api/quote";
 
 async function getquote() {
     try {
@@ -11,12 +11,9 @@ async function getquote() {
         const data = await response.json();
         console.log(data);
 
-        // Randomly select a quote from the array
-        const randomQuote = data[Math.floor(Math.random() * data.length)];
-        
         // Display the quote and author on the web page
-        quote.textContent = `"${randomQuote.text}"`;
-        author.textContent = `- ${randomQuote.author || 'Unknown'}`;
+        quote.textContent = `"${data.text}"`;
+        author.textContent = `- ${data.author}`;
     } catch (error) {
         console.error('Error fetching the quote:', error);
         quote.textContent = "Could not fetch quote. Please try again later.";
