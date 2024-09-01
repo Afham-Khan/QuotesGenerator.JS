@@ -5,34 +5,44 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Playfair Display", serif;
-
-
 }
 
 body {
-
-    background-image: url(desktop-wallpaper-background-nature-quotes-space-beach-flower-for-your-mobile-tablet-explore-simple-beautiful-simple-beautiful-background-simple-simple-1920x1200-minimalist-nature.jpg);
+    background-image: url(https://e0.pxfuel.com/wallpapers/131/467/desktop-wallpaper-background-nature-quotes-space-beach-flower-for-your-mobile-tablet-explore-simple-beautiful-simple-beautiful-background-simple-simple-1920x1200-minimalist-nature.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .quote-box {
-    background: linear-gradient(135deg, hwb(317 22% 47%) 0%, #158ebe 100%);
+    background: linear-gradient(135deg, rgba(23, 229, 198, 0.9) 0%, rgba(183, 212, 21, 0.9) 100%);
     width: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.922);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease-in-out;
+    transition: transform 0.5s ease;
+}
 
+.quote-box:hover {
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 .quote-box h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 40px;
     position: relative;
+    color: #fff;
+    transition: color 0.3s ease;
+}
 
+.quote-box h2:hover {
+    color: rgb(23, 124, 229);
 }
 
 .quote-box h2::after {
@@ -45,17 +55,27 @@ body {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
+    transition: background 0.3s ease;
+}
+
+.quote-box h2:hover::after {
+    background: rgb(0, 155, 255);
 }
 
 .quote-box blockquote {
     font-size: 26px;
     min-height: 110px;
-
+    color: #fff;
+    margin: 0;
+    position: relative;
+    animation: textGlow 2s infinite alternate;
 }
 
 .quote-box blockquote::before,
-.quote-box blockquote ::after {
+.quote-box blockquote::after {
     content: '"';
+    font-size: 50px;
+    color: rgb(23, 124, 229);
 }
 
 .quote-box span {
@@ -63,13 +83,14 @@ body {
     margin-top: 10px;
     float: right;
     position: relative;
+    color: #fff;
 }
 
-.quote-box span ::before {
+.quote-box span::before {
     content: '';
     width: 20px;
     height: 2px;
-    background: rgb(23, 124, 229);
+    background: rgb(229, 23, 23);
     position: absolute;
     top: 50%;
     left: -30px;
@@ -94,6 +115,12 @@ body {
     justify-content: center;
     margin: 5px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.quote-box button:hover {
+    background: rgb(0, 155, 255);
+    transform: scale(1.1);
 }
 
 .quote-box button img {
@@ -104,7 +131,32 @@ body {
 .quote-box button:nth-child(2) {
     background: transparent;
     color: #333;
+    border: 1px solid #333;
 }
+
+.quote-box button:nth-child(2):hover {
+    background: #333;
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
     .quote-box {
